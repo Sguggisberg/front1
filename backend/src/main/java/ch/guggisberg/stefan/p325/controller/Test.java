@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://178.128.192.124")
 @RestController
 @RequestMapping("/api/users")
 public class Test {
@@ -16,7 +16,7 @@ public class Test {
     public ResponseEntity<Hallo> test() {
 
         Hallo hello = new Hallo();
-        hello.text="hello world3";
+        hello.text="hello world4";
 
         return new ResponseEntity<>(hello, HttpStatus.OK);
     }
