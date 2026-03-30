@@ -16,7 +16,7 @@ public class Test {
     public ResponseEntity<Hallo> test() {
 
         Hallo hello = new Hallo();
-        hello.text="hello world";
+        hello.text="hello world3";
 
         return new ResponseEntity<>(hello, HttpStatus.OK);
     }
