@@ -4,7 +4,15 @@ FROM node:20 AS build
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build
+ARG BUILD_ENV=production
+
+# 👇 Dynamischer Build
+RUN if [ "$BUILD_ENV" = "production" ]; then \
+      npm run build -- --configuration=production; \
+    else \
+      npm run build; \
+    fi
+
 
 # Serve mit Nginx
 FROM nginx:alpine

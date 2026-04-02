@@ -9,7 +9,10 @@ services:
       - app-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        BUILD_ENV: ${BUILD_ENV}
     container_name: angular-frontend
     restart: always
     depends_on:

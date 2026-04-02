@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class App {
   private http = inject(HttpClient);
+  public apiUrl = environment.apiUrl;
 
-  test = this.http.get<string>('http://178.128.192.124/api/users');
+  constructor() {
+    console.log('ENV:', environment);
+  }
+
+  test = this.http.get<string>(`${this.apiUrl}/users`);
   counter = toSignal(this.test);
 
   protected readonly title = signal('front');
