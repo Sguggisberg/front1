@@ -1,3 +1,3 @@
 cd ..
 docker-compose down
-docker-compose --env-file .env.development up --build
+docker compose -f docker-compose.yml -f docker-compose.dev.yml --env-file .env.development up --build
